@@ -1,5 +1,7 @@
 import React from 'react'
 import Sidebar from '../Sidebar/Sidebar'
+import TaskCard from '../Task/TaskCard'
+import TaskList from '../TaskList/TaskList'
 
 const Home = () => {
   return (
@@ -7,8 +9,8 @@ const Home = () => {
       <div className='hidden lg:block w-[25vw] relative'>
         <Sidebar/>
       </div>
-      <div className='right-side-part'>
-
+      <div className='right-side-part w-full flex justify-center mb-10'>
+        <TaskList/>
       </div>
     </div>
   )

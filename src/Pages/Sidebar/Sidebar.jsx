@@ -29,7 +29,7 @@ const Sidebar = () => {
           <Avatar
             className="border-2 border-[#c24dd0]"
             sx={{ width: "8rem", height: "8rem" }}
-            src="https://mui.com/static/images/avatar/1.jpg"
+            src="https://res.cloudinary.com/imagist/image/fetch/q_auto,f_auto,c_scale,w_2624/https%3A%2F%2Fimages.ctfassets.net%2Fdm4oa8qtogq0%2F3sLA4m726qEdgbDhZVQ3Tw%2F12a33481f6ccc132860b5ad131d8c120%2Fintegration-logo-jira-1.jpg"
           />
         </div>
 
