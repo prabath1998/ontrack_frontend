@@ -36,4 +36,9 @@ code {
   /* background-image: linear-gradient(150deg, #c24dd0,#7a72fa); */
 }
 
+.customButton{
+  color: white !important;
+  background-image: linear-gradient(150deg, #c24dd0,#7a72fa);
+}
+
 

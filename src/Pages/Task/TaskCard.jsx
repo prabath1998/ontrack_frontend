@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { IconButton } from "@mui/material";
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 import UserList from "../UserList";
 import SubmissionList from "../SubmissionList";
+import EditTaskCard from "../EditTaskCard";
 
 const role = "ROLE_ADMIN";
 
@@ -18,30 +19,37 @@ const TaskCard = () => {
     setAnchorEl(null);
   };
 
-
-  const [openUserList,setOpenUserList] = useState(false);
-  const [openSubmissionList,setOpenSubmissionList] = useState(false);
+  const [openUserList, setOpenUserList] = useState(false);
+  const [openSubmissionList, setOpenSubmissionList] = useState(false);
+  const [openUpdateTaskForm, setOpenUpdateTaskForm] = useState(false);
 
   const handleCloseUserList = () => {
     setOpenUserList(false);
-  }
+  };
 
   const handleCloseSubmissionList = () => {
     setOpenSubmissionList(false);
-  }
+  };
+
+  const handleCloseUpdateTaskModal = () => {
+    setOpenUpdateTaskForm(false);
+  };
 
   const handleOpenUserList = () => {
     setOpenUserList(true);
-    handleMenuClose();  
+    handleMenuClose();
   };
   const handleOpenSubmissionList = () => {
     setOpenSubmissionList(true);
-    handleMenuClose(); 
+    handleMenuClose();
   };
-  const handleOpenUpdateTaskModal = () => {};
-  const handleDeleteTask = () => {};
-
-
+  const handleOpenUpdateTaskModal = () => {
+    setOpenUpdateTaskForm(true);
+    handleMenuClose();
+  };
+  const handleDeleteTask = () => {    
+    handleMenuClose();
+  };
 
   return (
     <div>
@@ -92,20 +100,30 @@ const TaskCard = () => {
             }}
           >
             {/* <MenuItem onClick={handleMenuClose}>Profile</MenuItem> */}
-            {
-              role === "ROLE_ADMIN" ? <>
-               <MenuItem onClick={handleOpenUserList}>Assign User</MenuItem>
-               <MenuItem onClick={handleOpenSubmissionList}>See Submissions</MenuItem>
-               <MenuItem onClick={handleOpenUpdateTaskModal}>Edit</MenuItem>
-               <MenuItem onClick={handleDeleteTask}>Delete</MenuItem>
-              </> 
-              : <></>
-            }
+            {role === "ROLE_ADMIN" ? (
+              <>
+                <MenuItem onClick={handleOpenUserList}>Assign User</MenuItem>
+                <MenuItem onClick={handleOpenSubmissionList}>
+                  See Submissions
+                </MenuItem>
+                <MenuItem onClick={handleOpenUpdateTaskModal}>Edit</MenuItem>
+                <MenuItem onClick={handleDeleteTask}>Delete</MenuItem>
+              </>
+            ) : (
+              <></>
+            )}
           </Menu>
         </div>
       </div>
-      <UserList open={openUserList} handleClose={handleCloseUserList}/>
-      <SubmissionList open={openSubmissionList} handleClose={handleCloseSubmissionList}/>
+      <UserList open={openUserList} handleClose={handleCloseUserList} />
+      <SubmissionList
+        open={openSubmissionList}
+        handleClose={handleCloseSubmissionList}
+      />
+      <EditTaskCard
+        open={openUpdateTaskForm}
+        handleClose={handleCloseUpdateTaskModal}
+      />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
-import SubmissionCard from "./SubmissionCard";
+// import EditTaskCard from './EditTaskCard';
 
 const style = {
   position: "absolute",
@@ -17,9 +17,7 @@ const style = {
   p: 4,
 };
 
-const submissins = [1, 2, 3, 4];
-
-export default function SubmissionList({ handleClose, open }) {
+export default function EditTaskCard({ handleClose, open }) {
   //   const [open, setOpen] = React.useState(false);
   //   const handleOpen = () => setOpen(true);
   //   const handleClose = () => setOpen(false);
@@ -33,15 +31,12 @@ export default function SubmissionList({ handleClose, open }) {
         aria-describedby="modal-modal-description"
       >
         <Box sx={style}>
-          <div>
-            {submissins.length > 0 ? (
-              <SubmissionCard />
-            ) : (
-              <div className="space-y-2">
-                <div className="text-center">No submissions found</div>
-              </div>
-            )}
-          </div>
+          <Typography id="modal-modal-title" variant="h6" component="h2">
+            Text in a modal
+          </Typography>
+          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+           Edit Task
+          </Typography>
         </Box>
       </Modal>
     </div>
